@@ -1,8 +1,19 @@
+import UIKit
+
 @objc(KeepAwake)
 class KeepAwake: NSObject {
+    
+    @objc func activate() -> Void {
+        DispatchQueue.main.async {
+            let app = UIApplication.shared;
+            app.isIdleTimerDisabled = true;
+        }
+    }
 
-    @objc(multiply:withB:withResolver:withRejecter:)
-    func multiply(a: Float, b: Float, resolve:RCTPromiseResolveBlock,reject:RCTPromiseRejectBlock) -> Void {
-        resolve(a*b)
+    @objc func deactivate() -> Void {
+        DispatchQueue.main.async {
+            let app = UIApplication.shared;
+            app.isIdleTimerDisabled = false;
+        }
     }
 }

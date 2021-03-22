@@ -1,9 +1,37 @@
+import React, { useEffect } from 'react';
 import { NativeModules } from 'react-native';
 
-type KeepAwakeType = {
-  multiply(a: number, b: number): Promise<number>;
-};
+const { KeepAwake: KeepAwakeModule } = NativeModules;
 
-const { KeepAwake } = NativeModules;
+export function activate(): void {
+  if (true) {
+    console.log(KeepAwakeModule);
+    KeepAwakeModule.activate();
+  }
+}
 
-export default KeepAwake as KeepAwakeType;
+export function deactivate(): void {
+  if (KeepAwakeModule?.deactivate) KeepAwakeModule.deactivate();
+}
+
+export function useKeepAwake(): void {
+  useEffect(() => {
+    activate();
+    return () => deactivate();
+  }, []);
+}
+export class KeepAwake extends React.PureComponent {
+  static instances = 0;
+
+  componentDidMount = () => {
+    if (KeepAwake.instances === 0) activate();
+    KeepAwake.instances += 1;
+  };
+
+  componentWillUnmount = () => {
+    KeepAwake.instances -= 1;
+    if (KeepAwake.instances === 0) deactivate();
+  };
+
+  render = () => null;
+}

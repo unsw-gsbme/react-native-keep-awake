@@ -1,18 +1,13 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import KeepAwake from 'react-native-keep-awake';
+import { KeepAwake } from 'react-native-keep-awake';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    KeepAwake.multiply(3, 7).then(setResult);
-  }, []);
-
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Screen will never sleep :)</Text>
+      <KeepAwake />
     </View>
   );
 }
