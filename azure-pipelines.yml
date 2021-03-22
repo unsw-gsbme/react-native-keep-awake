@@ -1,0 +1,95 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+variables:
+  YARN_CACHE_FOLDER: $(Pipeline.Workspace)/.yarn
+  CACHE_RESTORED: false
+trigger:
+  branches:
+    include:
+      - refs/tags/*
+      - master
+
+pool:
+  vmImage: 'ubuntu-latest'
+stages: 
+  - stage: Install
+    jobs:
+      - job: Install
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: 13.x
+            displayName: 'Install Node.js'
+          - task: Cache@2
+            inputs:
+              key: 'yarn | "$(Agent.OS)" | yarn.lock'
+              restoreKeys: |
+                yarn install --frozen-lockfile --ignore-scripts | "$(Agent.OS)"
+                yarn install --frozen-lockfile --ignore-scripts 
+              path: $(YARN_CACHE_FOLDER)
+              cacheHitVar: CACHE_RESTORED
+            displayName: Download Cache'd Yarn Dependencies
+          - script: yarn install --ignore-scripts --frozen-lockfile
+            displayName: Install Yarn Dependencies
+          - task: ArchiveFiles@2
+            inputs:
+              rootFolderOrFile: $(System.DefaultWorkingDirectory)/node_modules
+              archiveFile: $(System.DefaultWorkingDirectory)/node_modules.tar.gz
+              archiveType: tar
+              replaceExistingArchive: true
+              tarCompression: gz
+            displayName: Archive node_modules
+          - publish: $(System.DefaultWorkingDirectory)/node_modules.tar.gz
+            artifact: node_modules
+
+  - stage: Build
+    jobs:
+      - job: Build
+        steps:
+          - task: DownloadPipelineArtifact@2
+            displayName: Download node_modules Artifact
+            inputs:
+              artifact: node_modules
+              path: $(System.DefaultWorkingDirectory)
+          - script: tar -xzf $(System.DefaultWorkingDirectory)/node_modules.tar.gz node_modules
+            displayName: Untar node_modules
+          - script: yarn build --frozen-lockfile
+            displayName: Build Module
+          - publish: $(System.DefaultWorkingDirectory)/dist
+            artifact: dist
+
+  - stage: Test
+    jobs:
+      - job: Test
+        steps:
+          - task: DownloadPipelineArtifact@2
+            displayName: Download node_modules Artifact
+            inputs:
+              artifact: node_modules
+              path: $(System.DefaultWorkingDirectory)
+          - script: tar -xzf $(System.DefaultWorkingDirectory)/node_modules.tar.gz node_modules
+            displayName: Untar node_modules
+          - script: yarn test
+            displayName: Run Test
+
+  - stage: Deploy
+    condition: startsWith(variables['build.sourceBranch'], 'refs/tags/')
+    jobs:
+      - job: publishtofeed
+        displayName: Publish to Feed
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: 13.x
+            displayName: 'Install Node.js'
+          - script: yarn install --ignore-scripts --frozen-lockfile
+            displayName: Install Yarn Dependencies
+          - task: Yarn@3
+            displayName: 'Yarn publish'
+            inputs:
+              Arguments: publish
+              customRegistry: useNpmrc
+              
+        
