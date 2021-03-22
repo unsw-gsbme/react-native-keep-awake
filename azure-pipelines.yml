@@ -14,7 +14,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 stages: 
-  - stage: Install
+  - stage: Install 
     jobs:
       - job: Install
         steps:
