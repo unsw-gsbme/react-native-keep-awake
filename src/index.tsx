@@ -4,10 +4,7 @@ import { NativeModules } from 'react-native';
 const { KeepAwake: KeepAwakeModule } = NativeModules;
 
 export function activate(): void {
-  if (true) {
-    console.log(KeepAwakeModule);
-    KeepAwakeModule.activate();
-  }
+  if (true) KeepAwakeModule.activate();
 }
 
 export function deactivate(): void {
