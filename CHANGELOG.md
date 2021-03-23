@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/unsw-gsbme/tcc-react-native-keep-awake/compare/v0.1.3...v0.1.4) (2021-03-23)
+
+
+### Bug Fixes
+
+* podspec file ([143b39f](https://github.com/unsw-gsbme/tcc-react-native-keep-awake/commit/143b39f940158dbcb5030e6e11a2c1898e87fb8f))
+
 ### [0.1.3](https://github.com/unsw-gsbme/tcc-react-native-keep-awake/compare/v0.1.2...v0.1.3) (2021-03-23)
 
 ### [0.1.2](https://github.com/unsw-gsbme/tcc-react-native-keep-awake/compare/v0.1.1...v0.1.2) (2021-03-23)
