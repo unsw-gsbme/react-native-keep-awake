@@ -18,7 +18,7 @@ export function useKeepAwake(): void {
   }, []);
 }
 export class KeepAwake extends React.PureComponent {
-  static instances = 0;
+  private static instances = 0;
 
   componentDidMount = () => {
     if (KeepAwake.instances === 0) activate();
