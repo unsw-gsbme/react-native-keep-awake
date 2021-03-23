@@ -43,9 +43,6 @@
     "url": "https://github.com/unsw-gsbme/tcc-react-native-keep-awake.git/issues"
   },
   "homepage": "https://github.com/unsw-gsbme/tcc-react-native-keep-awake.git#readme",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "devDependencies": {
     "@commitlint/config-conventional": "^12.0.1",
     "@react-native-community/eslint-config": "^2.0.0",
