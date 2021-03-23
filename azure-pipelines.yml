@@ -84,6 +84,11 @@ stages:
             inputs:
               versionSpec: 13.x
             displayName: 'Install Node.js'
+
+          - task: YarnInstaller@3
+            inputs:
+              versionSpec: '1.x'
+
           - script: yarn --frozen-lockfile
             displayName: Install Yarn Dependencies
 
