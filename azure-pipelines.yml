@@ -100,4 +100,4 @@ stages:
               projectDirectory: '$(System.DefaultWorkingDirectory)'
               arguments: 'publish --verbose'
               customRegistry: 'useFeed'
-              customFeed: 'tcc-modules/tcc-modules'
+              customFeed: 'tcc-modules'
