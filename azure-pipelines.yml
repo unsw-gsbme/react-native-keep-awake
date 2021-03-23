@@ -75,7 +75,7 @@ stages:
             displayName: Run Test
 
   - stage: Deploy
-    # condition: startsWith(variables['build.sourceBranch'], 'refs/tags/')
+    condition: startsWith(variables['build.sourceBranch'], 'refs/tags/')
     jobs:
       - job: publishtofeed
         displayName: Publish to Feed
@@ -91,8 +91,6 @@ stages:
           - script: yarn --frozen-lockfile
             displayName: Install Yarn Dependencies
 
-          - bash: rm yarn.lock
-            workingDirectory: '$(System.DefaultWorkingDirectory)'
           - task: Yarn@3
             displayName: 'Yarn publish'
             inputs:
