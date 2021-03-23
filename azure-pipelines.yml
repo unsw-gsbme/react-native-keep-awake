@@ -86,12 +86,15 @@ stages:
             displayName: 'Install Node.js'
           - script: yarn --frozen-lockfile
             displayName: Install Yarn Dependencies
+
+          - bash: rm yarn.lock
+            workingDirectory: '$(System.DefaultWorkingDirectory)'
           - task: Yarn@3
             displayName: 'Yarn publish'
             inputs:
               projectDirectory: '$(System.DefaultWorkingDirectory)'
-              productionMode: true
+              arguments: 'publish --verbose'
               customRegistry: 'useFeed'
-              customFeed: '245a3fda-bc93-427c-9f8b-bd3f4c1773c9'
+              customFeed: '514b1ac4-bad5-4875-8ac0-26b9322fc14d'
               
         
