@@ -10,12 +10,13 @@ Pod::Spec.new do |s|
   s.license      = package["license"]
   s.authors      = package["author"]
 
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
-
+  
   s.platforms    = { :ios => "10.0" }
   s.source       = { :git => "https://github.com/unsw-gsbme/tcc-react-native-keep-awake.git.git", :tag => "#{s.version}" }
-
-  s.source_files = "ios/**/*.{h,m,mm,swift}"
+  
+  s.source_files = "ios/**/*.{h,m,swift}"
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
 
   s.dependency "React-Core"
 end
+
