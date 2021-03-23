@@ -84,10 +84,9 @@ stages:
             inputs:
               versionSpec: 13.x
             displayName: 'Install Node.js'
-
-          - task: YarnInstaller@3
+          - task: npmAuthenticate@0
             inputs:
-              versionSpec: '1.x'
+              workingFile: '$(System.DefaultWorkingDirectory).npmrc'
           
           - script: yarn --frozen-lockfile
             displayName: Install Yarn Dependencies
@@ -99,5 +98,4 @@ stages:
             inputs:
               projectDirectory: '$(System.DefaultWorkingDirectory)'
               arguments: 'publish --verbose'
-              customEndpoint: 'https://gsbme.pkgs.visualstudio.com/tcc-modules/_packaging/tcc-modules/npm/registry/'
 
