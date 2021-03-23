@@ -55,9 +55,9 @@ stages:
               path: $(System.DefaultWorkingDirectory)
           - script: tar -xzf $(System.DefaultWorkingDirectory)/node_modules.tar.gz node_modules
             displayName: Untar node_modules
-          - script: yarn build --frozen-lockfile
+          - script: yarn prepare
             displayName: Build Module
-          - publish: $(System.DefaultWorkingDirectory)/dist
+          - publish: $(System.DefaultWorkingDirectory)
             artifact: dist
 
   - stage: Test
@@ -84,7 +84,7 @@ stages:
             inputs:
               versionSpec: 13.x
             displayName: 'Install Node.js'
-          - script: yarn install --ignore-scripts --frozen-lockfile
+          - script: yarn --frozen-lockfile
             displayName: Install Yarn Dependencies
           - task: Yarn@3
             displayName: 'Yarn publish'
