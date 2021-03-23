@@ -88,7 +88,7 @@ stages:
           - task: YarnInstaller@3
             inputs:
               versionSpec: '1.x'
-
+          
           - script: yarn --frozen-lockfile
             displayName: Install Yarn Dependencies
 
@@ -99,5 +99,7 @@ stages:
             inputs:
               projectDirectory: '$(System.DefaultWorkingDirectory)'
               arguments: 'publish --verbose'
+              customEndpoint: 'https://gsbme.pkgs.visualstudio.com/tcc-modules/_packaging/tcc-modules/npm/registry/'
               customRegistry: 'useFeed'
               customFeed: 'tcc-modules'
+
