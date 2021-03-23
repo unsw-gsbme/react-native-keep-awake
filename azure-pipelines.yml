@@ -84,6 +84,10 @@ stages:
             inputs:
               versionSpec: 13.x
             displayName: 'Install Node.js'
+          - task: npmAuthenticate@0
+            inputs:
+              workingFile: '$(System.DefaultWorkingDirectory).npmrc'
+          
           - script: yarn --frozen-lockfile
             displayName: Install Yarn Dependencies
 
@@ -94,7 +98,4 @@ stages:
             inputs:
               projectDirectory: '$(System.DefaultWorkingDirectory)'
               arguments: 'publish --verbose'
-              customRegistry: 'useFeed'
-              customFeed: '514b1ac4-bad5-4875-8ac0-26b9322fc14d'
-              
-        
+
