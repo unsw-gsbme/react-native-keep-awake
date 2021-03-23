@@ -89,6 +89,8 @@ stages:
           - task: Yarn@3
             displayName: 'Yarn publish'
             inputs:
+              projectDirectory: '$(System.DefaultWorkingDirectory)'
+              productionMode: true
               customRegistry: 'useFeed'
               customFeed: '245a3fda-bc93-427c-9f8b-bd3f4c1773c9'
               
