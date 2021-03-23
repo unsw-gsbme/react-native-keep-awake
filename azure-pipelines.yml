@@ -86,7 +86,7 @@ stages:
             displayName: 'Install Node.js'
           - task: npmAuthenticate@0
             inputs:
-              workingFile: '$(System.DefaultWorkingDirectory).npmrc'
+              workingFile: '$(System.DefaultWorkingDirectory)/.npmrc'
           
           - script: yarn --frozen-lockfile
             displayName: Install Yarn Dependencies
