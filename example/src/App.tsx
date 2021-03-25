@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { KeepAwake } from 'react-native-keep-awake';
+import { KeepAwake } from '@tcc/react-native-keep-awake';
 
 export default function App() {
   return (
