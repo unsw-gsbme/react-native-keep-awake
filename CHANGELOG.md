@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/unsw-gsbme/tcc-react-native-keep-awake/compare/v0.1.4...v0.1.5) (2021-03-25)
+
+
+### Features
+
+* don't include examples ([e592a89](https://github.com/unsw-gsbme/tcc-react-native-keep-awake/commit/e592a8950c07469dac6c23be344031a0945127f6))
+* setup RNTL ([#4](https://github.com/unsw-gsbme/tcc-react-native-keep-awake/issues/4)) ([396e472](https://github.com/unsw-gsbme/tcc-react-native-keep-awake/commit/396e472d03c865cc21d277768ce0b07d25417970)), closes [#3](https://github.com/unsw-gsbme/tcc-react-native-keep-awake/issues/3)
+* updated lock files ([ca0badc](https://github.com/unsw-gsbme/tcc-react-native-keep-awake/commit/ca0badc91784337f869b1eb248029b4f96b6c2d2))
+
+
+### Bug Fixes
+
+* disabled flipper for example ([632d2f6](https://github.com/unsw-gsbme/tcc-react-native-keep-awake/commit/632d2f69b4aad6a893852f0b9baccb14ad5fd615))
+* example now works ([d80f105](https://github.com/unsw-gsbme/tcc-react-native-keep-awake/commit/d80f105a8979b53720fe47d4ba736c4981d8e9f6))
+* podspec source ([af450e5](https://github.com/unsw-gsbme/tcc-react-native-keep-awake/commit/af450e57c5e7bb3871b51e6ea3db5a6275264611))
+* removed define_modules ([5923b88](https://github.com/unsw-gsbme/tcc-react-native-keep-awake/commit/5923b88a17d2a08f958d54a34cef9bc768fe3dea))
+
 ### [0.1.4](https://github.com/unsw-gsbme/tcc-react-native-keep-awake/compare/v0.1.3...v0.1.4) (2021-03-23)
 
 

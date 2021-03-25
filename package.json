@@ -1,6 +1,6 @@
 {
   "name": "@tcc/react-native-keep-awake",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "React Native module for keeping the phone screen alive",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
