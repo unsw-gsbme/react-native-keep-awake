@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 
   
   s.platforms    = { :ios => "10.0" }
-  s.source       = { :git => "https://github.com/unsw-gsbme/tcc-react-native-keep-awake.git.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/unsw-gsbme/tcc-react-native-keep-awake.git", :tag => "#{s.version}" }
   
   s.source_files = "ios/**/*.{h,m,swift}"
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
