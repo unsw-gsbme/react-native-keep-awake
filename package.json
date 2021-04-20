@@ -1,6 +1,6 @@
 {
-  "name": "@tcc/react-native-keep-awake",
-  "version": "0.1.5",
+  "name": "@unsw-gsbme/react-native-keep-awake",
+  "version": "5.0.0",
   "description": "React Native module for keeping the phone screen alive",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -37,13 +37,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/unsw-gsbme/tcc-react-native-keep-awake.git",
+  "repository": "https://github.com/unsw-gsbme/react-native-keep-awake.git",
   "author": "Joshua Head <joshua.head@unsw.edu.au> (https://github.com/jahead)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/unsw-gsbme/tcc-react-native-keep-awake.git/issues"
+    "url": "https://github.com/unsw-gsbme/react-native-keep-awake.git/issues"
   },
-  "homepage": "https://github.com/unsw-gsbme/tcc-react-native-keep-awake.git#readme",
+  "homepage": "https://github.com/unsw-gsbme/react-native-keep-awake.git#readme",
   "devDependencies": {
     "@commitlint/config-conventional": "^12.0.1",
     "@react-native-community/eslint-config": "^2.0.0",
