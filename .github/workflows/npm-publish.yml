@@ -27,8 +27,9 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+          scope: '@unsw-gsbme'
       - run: yarn install  --frozen-lockfile
-      - run: yarn publish
+      - run: yarn publish --public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
@@ -41,6 +42,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
+          scope: '@unsw-gsbme'
       - run: yarn install  --frozen-lockfile
       - run: yarn publish
         env:
