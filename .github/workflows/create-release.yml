@@ -1,9 +1,8 @@
 name: create-release
 on:
   push:
-    # Sequence of patterns matched against refs/tags
-    tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v1.0.0
+    branches:
+      - 'release'
 
 jobs:
   build:
@@ -17,7 +16,7 @@ jobs:
       - run: yarn test
 
   release:
-    if: github.ref == 'refs/heads/master'
+    needs: build
     runs-on: ubuntu-latest
     steps:
       # To use this repository's private action, you must check out the repository
