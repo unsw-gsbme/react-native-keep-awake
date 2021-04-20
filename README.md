@@ -20,15 +20,15 @@ yarn install @unsw-gsbme/react-native-keep-awake
 ### Class Component style
 
 ```js
-import { KeepAwake } from '@unsw-gsbme/react-native-keep-awake';
+import { useKeepAwake } from '@unsw-gsbme/react-native-keep-awake';
 
 // ...
 
 export default function App() {
+  useKeepAwake();
   return (
     <View style={styles.container}>
       <Text>Screen will never sleep :)</Text>
-      <KeepAwake />
     </View>
   );
 }
@@ -37,7 +37,7 @@ export default function App() {
 ### hooks style
 
 ```js
-import { KeepAwake } from '@unsw-gsbme/react-native-keep-awake';
+import { KeepAwak } from '@unsw-gsbme/react-native-keep-awake';
 
 // ...
 
