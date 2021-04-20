@@ -1,22 +1,12 @@
 name: create-release
 on:
   push:
-    branches:
-      - 'release'
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v1.0.0
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 12
-      - run: yarn install  --frozen-lockfile
-      - run: yarn test
-
   release:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       # To use this repository's private action, you must check out the repository
@@ -38,33 +28,3 @@ jobs:
           body: ${{ steps.changelog.outputs.changelog }}
           draft: false
           prerelease: false
-
-  publish-npm:
-    needs: release
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-          scope: '@unsw-gsbme'
-      - run: yarn install  --frozen-lockfile
-      - run: yarn publish --public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-
-  publish-gpr:
-    needs: release
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
-          scope: '@unsw-gsbme'
-      - run: yarn install  --frozen-lockfile
-      - run: yarn publish --public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
