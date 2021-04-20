@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "react-native-keep-awake": ["./src/index"]
+      "@unsw-gsbme/react-native-keep-awake": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
