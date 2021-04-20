@@ -20,7 +20,7 @@ yarn install @unsw-gsbme/react-native-keep-awake
 ### Class Component style
 
 ```js
-import { KeepAwake } from 'react-native-keep-awake';
+import { KeepAwake } from '@unsw-gsbme/react-native-keep-awake';
 
 // ...
 
@@ -37,7 +37,7 @@ export default function App() {
 ### hooks style
 
 ```js
-import { KeepAwake } from 'react-native-keep-awake';
+import { KeepAwake } from '@unsw-gsbme/react-native-keep-awake';
 
 // ...
 
