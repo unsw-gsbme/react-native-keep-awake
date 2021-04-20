@@ -1,6 +1,6 @@
 {
   "name": "@unsw-gsbme/react-native-keep-awake",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Native module for keeping the phone screen alive",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
