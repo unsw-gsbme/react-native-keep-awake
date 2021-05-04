@@ -12,7 +12,7 @@ npm install @unsw-gsbme/react-native-keep-awake
 ```
 
 ```sh
-yarn install @unsw-gsbme/react-native-keep-awake
+yarn add @unsw-gsbme/react-native-keep-awake
 ```
 
 ## Usage
